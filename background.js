@@ -8,7 +8,7 @@ canvas.height = window.innerHeight;
 
 // Variables for the dots
 let dots = [];
-const numDots = 100;
+const numDots = 100; // You can change the number of dots here
 
 // Create the dot objects
 function createDot() {
@@ -16,7 +16,8 @@ function createDot() {
         x: Math.random() * canvas.width,
         y: Math.random() * canvas.height,
         size: Math.random() * 2 + 1,
-        speed: Math.random() * 0.5 + 0.5
+        speedX: (Math.random() - 0.5) * 2, // Random horizontal speed
+        speedY: (Math.random() - 0.5) * 2, // Random vertical speed
     };
 }
 
@@ -29,9 +30,16 @@ for (let i = 0; i < numDots; i++) {
 function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height); // Clear canvas before drawing new frame
 
+    // Loop through all dots to move them and draw
     dots.forEach(dot => {
-        dot.x += dot.speed;
-        if (dot.x > canvas.width) dot.x = 0; // Reset if it goes off-screen
+        dot.x += dot.speedX;
+        dot.y += dot.speedY;
+
+        // Keep dots inside the screen (if a dot moves off the screen, it comes back)
+        if (dot.x > canvas.width) dot.x = 0;
+        if (dot.x < 0) dot.x = canvas.width;
+        if (dot.y > canvas.height) dot.y = 0;
+        if (dot.y < 0) dot.y = canvas.height;
 
         // Draw the dot
         ctx.beginPath();
