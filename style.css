@@ -1,19 +1,1 @@
-/* Set the body to have no margin or padding */
-body {
-    margin: 0;
-    padding: 0;
-    height: 100vh; /* Make sure it fills the entire screen */
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #111; /* Set a dark background to contrast the moving dots */
-}
 
-/* Ensure the canvas covers the entire screen */
-canvas {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
