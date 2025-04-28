@@ -12,6 +12,11 @@
       font-family: Arial, sans-serif;
       height: 100vh;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      padding-top: 50px;
     }
 
     canvas {
@@ -20,12 +25,54 @@
       left: 0;
       z-index: -1;
     }
+
+    .circle-image-holder {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      border: 5px solid #fff;
+      background-size: cover;
+      background-position: center;
+      margin-bottom: 20px;
+      box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+    }
+
+    .image-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .image-links img {
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+
+    .image-links img:hover {
+      transform: scale(1.2);
+    }
   </style>
 </head>
 
 <body>
 
   <canvas id="background"></canvas>
+
+  <!-- Circle Image Holder -->
+  <div class="circle-image-holder" style="background-image: url('your-image-url.jpg');"></div>
+
+  <!-- Image Links -->
+  <div class="image-links">
+    <a href="https://discord.com" target="_blank">
+      <img src="discord-icon-url.png" alt="Discord">
+    </a>
+    <a href="https://github.com" target="_blank">
+      <img src="github-icon-url.png" alt="GitHub">
+    </a>
+    <!-- Add more image links here as needed -->
+  </div>
 
   <script>
     const canvas = document.getElementById('background');
